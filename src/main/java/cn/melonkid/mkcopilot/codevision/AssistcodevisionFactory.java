@@ -1,4 +1,4 @@
-package cn.melonkid.mkcopilot.hint;
+package cn.melonkid.mkcopilot.codevision;
 
 import cn.melonkid.mkcopilot.handler.RefactoryEventHandler;
 import cn.melonkid.mkcopilot.util.PsiMethodUtil;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * 重构hint工厂
  */
-public class AssistHintFactory implements CodeVisionProvider {
+public class AssistcodevisionFactory implements CodeVisionProvider {
 
     private static final String ASSIST_HINT_ID = "AssistHint";
 
@@ -73,7 +73,7 @@ public class AssistHintFactory implements CodeVisionProvider {
             String bugText = "找BUG";
             String bugHintName = "bugHintName";
             TextRange bugRange = refactoredRange.shiftRight(refactoredText.length() + 1);
-            CodeVisionEntry bugEntry = new ClickableTextCodeVisionEntry(bugText, bugHintName, null,
+            CodeVisionEntry bugEntry = new ClickableTextCodeVisionEntry(bugText, bugHintName, refactoryEventHandler,
                     null, getName(), getName(), List.of());
             lenses.add(new Pair<>(bugRange, bugEntry));
         }
